@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/prefabs/player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/textures/environment/base.png" type="Texture" id=2]
-[ext_resource path="res://assets/sounds/music.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/prefabs/characters/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/textures/bases/town.png" type="Texture" id=2]
+[ext_resource path="res://assets/sounds/music/town.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/prefabs/buildings/yellow_triple.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/prefabs/buildings/yellow_double.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/prefabs/cars/blue_right.tscn" type="PackedScene" id=6]
 
 [node name="town" type="Node2D"]
 
@@ -31,7 +34,7 @@ polygon = PoolVector2Array( -800, -320, 542, -320, 542, -166, 800, -166, 800, -4
 [node name="y_sort" type="YSort" parent="."]
 
 [node name="player" parent="y_sort" instance=ExtResource( 1 )]
-position = Vector2( 248, 208 )
+position = Vector2( 712, 296 )
 
 [node name="camera" type="Camera2D" parent="y_sort/player"]
 position = Vector2( -640, -368 )
@@ -45,6 +48,15 @@ limit_bottom = 960
 limit_smoothed = true
 smoothing_enabled = true
 editor_draw_limits = true
+
+[node name="building_yellow_triple" parent="y_sort" instance=ExtResource( 4 )]
+position = Vector2( 96, 128 )
+
+[node name="building_yellow_double" parent="y_sort" instance=ExtResource( 5 )]
+position = Vector2( 288, 128 )
+
+[node name="car_blue_right" parent="y_sort" instance=ExtResource( 6 )]
+position = Vector2( 1184, 832 )
 
 [node name="music" type="AudioStreamPlayer2D" parent="."]
 pause_mode = 2

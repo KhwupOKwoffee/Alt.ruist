@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/music.wav-1289099606193b180e91147a9336c290.sample"
+path="res://.import/town.wav-dc2191526bf737329e34a8ad3f41e6bb.sample"
 
 [deps]
 
-source_file="res://assets/sounds/music.wav"
-dest_files=[ "res://.import/music.wav-1289099606193b180e91147a9336c290.sample" ]
+source_file="res://assets/sounds/music/town.wav"
+dest_files=[ "res://.import/town.wav-dc2191526bf737329e34a8ad3f41e6bb.sample" ]
 
 [params]
 
