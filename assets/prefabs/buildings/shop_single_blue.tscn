@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/textures/buildings/shops.png" type="Texture" id=1]
+
+[node name="shop_single_blue" type="StaticBody2D"]
+
+[node name="sprite" type="Sprite" parent="."]
+position = Vector2( 0, -128 )
+texture = ExtResource( 1 )
+hframes = 6
+frame = 2
+
+[node name="collision_polygon" type="CollisionPolygon2D" parent="."]
+position = Vector2( 0, -128 )
+polygon = PoolVector2Array( -111, 86, -112, 182, -97, 182, -88, 192, -44, 192, -35, 182, -16, 182, -16, 176, 16, 176, 16, 182, 35, 182, 44, 192, 88, 192, 97, 182, 112, 182, 112, 86 )

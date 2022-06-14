@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.00002
-height = 9.99999
+height = 14.0
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -224,9 +224,6 @@ start_node = "idle"
 
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="sprite" type="Sprite" parent="."]
 position = Vector2( 0, -8 )

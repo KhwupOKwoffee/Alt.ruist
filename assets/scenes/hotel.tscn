@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/prefabs/characters/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/textures/bases/hotel.png" type="Texture" id=2]
+[ext_resource path="res://assets/scripts/door.gd" type="Script" id=3]
+[ext_resource path="res://assets/textures/bases/void.png" type="Texture" id=4]
+[ext_resource path="res://assets/sounds/music/hotel.wav" type="AudioStream" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15, 14.5 )
+
+[node name="hotel" type="Node2D"]
+
+[node name="void" type="Sprite" parent="."]
+position = Vector2( 512, 304 )
+scale = Vector2( 16, 9.5 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="base" type="StaticBody2D" parent="."]
+position = Vector2( 488, 280 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="sprite" type="Sprite" parent="base"]
+texture = ExtResource( 2 )
+
+[node name="collision_polygon" type="CollisionPolygon2D" parent="base"]
+polygon = PoolVector2Array( -128, 202, -128, 106, 0, 106, 0, 42, -128, 42, -128, 10, -144, -22, -224, -22, -224, -86, -128, -86, -128, -150, 0, -150, 0, -214, 32, -214, 32, -150, 160, -150, 160, -54, 224, -54, 224, -22, 176, -22, 160, 10, 160, 43, 32, 42, 32, 106, 160, 106, 160, 202, -126, 202, -126, 204, 162, 204, 162, 10, 177, -20, 226, -20, 226, -56, 162, -56, 162, -152, 34, -152, 34, -216, -2, -216, -2, -152, -130, -152, -130, -88, -226, -88, -226, -20, -145, -20, -130, 11, -130, 204, -128, 204 )
+
+[node name="door" type="Area2D" parent="base"]
+script = ExtResource( 3 )
+target = "res://assets/scenes/town.tscn"
+
+[node name="collision_shape" type="CollisionShape2D" parent="base/door"]
+position = Vector2( 16, -198.5 )
+shape = SubResource( 1 )
+
+[node name="y_sort" type="YSort" parent="."]
+
+[node name="player" parent="y_sort" instance=ExtResource( 1 )]
+position = Vector2( 504, 145 )
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -20.0
+pitch_scale = 1.1
+autoplay = true

@@ -1,22 +1,22 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/prefabs/characters/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/textures/bases/town.png" type="Texture" id=2]
 [ext_resource path="res://assets/sounds/music/town.wav" type="AudioStream" id=3]
-[ext_resource path="res://assets/prefabs/buildings/yellow_triple.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/prefabs/buildings/yellow_double.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/prefabs/cars/blue_right.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/prefabs/buildings/flats_triple.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/prefabs/buildings/flats_double.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/prefabs/buildings/hotel_double_blue.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/prefabs/buildings/hotel_triple_grey.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/prefabs/buildings/shop_single_blue.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/prefabs/cars/blue_right.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/prefabs/foliage/tree.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/prefabs/characters/npc.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/scripts/door.gd" type="Script" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31, 10.5 )
 
 [node name="town" type="Node2D"]
-
-[node name="border" type="StaticBody2D" parent="."]
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
-
-[node name="collision_polygon" type="CollisionPolygon2D" parent="border"]
-polygon = PoolVector2Array( -16, -16, -16, 976, 1616, 976, 1616, 0, 1600, 0, 1600, 90.9003, 1600, 960, 0, 960, 0, 0, 1600, 0, 1600, -16 )
 
 [node name="base" type="StaticBody2D" parent="."]
 position = Vector2( 800, 480 )
@@ -29,12 +29,12 @@ __meta__ = {
 texture = ExtResource( 2 )
 
 [node name="collision_polygon" type="CollisionPolygon2D" parent="base"]
-polygon = PoolVector2Array( -800, -320, 542, -320, 542, -166, 800, -166, 800, -480, -800, -479 )
+polygon = PoolVector2Array( 800, -184, 800, -168, 552, -168, 544, -176, 544, -320, -800, -320, -800, 480, 800, 480, 800, -184, 808, -184, 808, 488, -808, 488, -808, -488, 808, -488, 808, -184 )
 
 [node name="y_sort" type="YSort" parent="."]
 
 [node name="player" parent="y_sort" instance=ExtResource( 1 )]
-position = Vector2( 712, 296 )
+position = Vector2( 863, 306 )
 
 [node name="camera" type="Camera2D" parent="y_sort/player"]
 position = Vector2( -640, -368 )
@@ -49,14 +49,97 @@ limit_smoothed = true
 smoothing_enabled = true
 editor_draw_limits = true
 
-[node name="building_yellow_triple" parent="y_sort" instance=ExtResource( 4 )]
-position = Vector2( 96, 128 )
+[node name="npc" parent="y_sort" instance=ExtResource( 11 )]
+position = Vector2( 540, 536 )
 
-[node name="building_yellow_double" parent="y_sort" instance=ExtResource( 5 )]
-position = Vector2( 288, 128 )
+[node name="blue_right" parent="y_sort" instance=ExtResource( 9 )]
+position = Vector2( 864, 832 )
 
-[node name="car_blue_right" parent="y_sort" instance=ExtResource( 6 )]
-position = Vector2( 1184, 832 )
+[node name="flats_triple" parent="y_sort" instance=ExtResource( 4 )]
+position = Vector2( 224, 72 )
+
+[node name="flats_double" parent="y_sort" instance=ExtResource( 5 )]
+position = Vector2( 416, 72 )
+
+[node name="flats_triple2" parent="y_sort" instance=ExtResource( 4 )]
+position = Vector2( 608, 72 )
+
+[node name="hotel_double_blue" parent="y_sort" instance=ExtResource( 6 )]
+position = Vector2( 864, 104 )
+
+[node name="door" type="Area2D" parent="y_sort/hotel_double_blue"]
+script = ExtResource( 12 )
+target = "res://assets/scenes/hotel.tscn"
+
+[node name="collision_shape" type="CollisionShape2D" parent="y_sort/hotel_double_blue/door"]
+position = Vector2( -1, 140.5 )
+shape = SubResource( 1 )
+
+[node name="hotel_triple_grey" parent="y_sort" instance=ExtResource( 7 )]
+position = Vector2( 1184, 96 )
+
+[node name="shop_single_blue" parent="y_sort" instance=ExtResource( 8 )]
+position = Vector2( 788, 576 )
+
+[node name="flats_double2" parent="y_sort" instance=ExtResource( 5 )]
+position = Vector2( 392, 864 )
+
+[node name="flats_triple3" parent="y_sort" instance=ExtResource( 4 )]
+position = Vector2( 584, 864 )
+
+[node name="tree" parent="y_sort" instance=ExtResource( 10 )]
+position = Vector2( 192, 384 )
+
+[node name="tree2" parent="y_sort" instance=ExtResource( 10 )]
+position = Vector2( 192, 448 )
+
+[node name="tree3" parent="y_sort" instance=ExtResource( 10 )]
+position = Vector2( 192, 512 )
+
+[node name="tree4" parent="y_sort" instance=ExtResource( 10 )]
+position = Vector2( 192, 576 )
+
+[node name="tree5" parent="y_sort" instance=ExtResource( 10 )]
+position = Vector2( 192, 640 )
+
+[node name="tree6" parent="y_sort" instance=ExtResource( 10 )]
+position = Vector2( 608, 384 )
+
+[node name="tree7" parent="y_sort" instance=ExtResource( 10 )]
+position = Vector2( 609, 448 )
+
+[node name="tree8" parent="y_sort" instance=ExtResource( 10 )]
+position = Vector2( 609, 512 )
+
+[node name="tree9" parent="y_sort" instance=ExtResource( 10 )]
+position = Vector2( 609, 576 )
+
+[node name="tree10" parent="y_sort" instance=ExtResource( 10 )]
+position = Vector2( 609, 640 )
+
+[node name="tree11" parent="y_sort" instance=ExtResource( 10 )]
+position = Vector2( 240, 640 )
+
+[node name="tree12" parent="y_sort" instance=ExtResource( 10 )]
+position = Vector2( 288, 640 )
+
+[node name="tree13" parent="y_sort" instance=ExtResource( 10 )]
+position = Vector2( 336, 640 )
+
+[node name="tree14" parent="y_sort" instance=ExtResource( 10 )]
+position = Vector2( 378, 640 )
+
+[node name="tree15" parent="y_sort" instance=ExtResource( 10 )]
+position = Vector2( 424, 640 )
+
+[node name="tree16" parent="y_sort" instance=ExtResource( 10 )]
+position = Vector2( 464, 640 )
+
+[node name="tree17" parent="y_sort" instance=ExtResource( 10 )]
+position = Vector2( 512, 640 )
+
+[node name="tree18" parent="y_sort" instance=ExtResource( 10 )]
+position = Vector2( 560, 640 )
 
 [node name="music" type="AudioStreamPlayer2D" parent="."]
 pause_mode = 2
