@@ -11,13 +11,15 @@ extents = Vector2( 15, 14.5 )
 
 [node name="hotel" type="Node2D"]
 
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2( 504, 280 )
+current = true
+zoom = Vector2( 0.75, 0.75 )
+
 [node name="void" type="Sprite" parent="."]
-position = Vector2( 512, 304 )
-scale = Vector2( 16, 9.5 )
+position = Vector2( 508, 304 )
+scale = Vector2( 27.875, 13.5 )
 texture = ExtResource( 4 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="base" type="StaticBody2D" parent="."]
 position = Vector2( 488, 280 )
