@@ -34,7 +34,7 @@ polygon = PoolVector2Array( 800, -184, 800, -168, 552, -168, 544, -176, 544, -32
 [node name="y_sort" type="YSort" parent="."]
 
 [node name="player" parent="y_sort" instance=ExtResource( 1 )]
-position = Vector2( 863, 306 )
+position = Vector2( 991, 302 )
 
 [node name="camera" type="Camera2D" parent="y_sort/player"]
 position = Vector2( -640, -368 )
@@ -65,7 +65,7 @@ position = Vector2( 416, 72 )
 position = Vector2( 608, 72 )
 
 [node name="hotel_double_blue" parent="y_sort" instance=ExtResource( 6 )]
-position = Vector2( 864, 104 )
+position = Vector2( 990, 98 )
 
 [node name="door" type="Area2D" parent="y_sort/hotel_double_blue"]
 script = ExtResource( 12 )
